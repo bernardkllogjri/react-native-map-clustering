@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import { Marker } from 'react-native-maps';
+import React, { Component } from "react"
+import { Text, View } from "react-native"
+import { Marker } from "react-native-maps"
 
 export default class CustomMarker extends Component {
   shouldComponentUpdate(nextProps) {
-    return !(this.props.geometry === nextProps.geometry
-      && this.props.pointCount === nextProps.pointCount);
+    return !(
+      this.props.geometry === nextProps.geometry &&
+      this.props.pointCount === nextProps.pointCount
+    )
   }
 
   render() {
@@ -19,13 +21,11 @@ export default class CustomMarker extends Component {
           onPress={this.props.pointCount > 0 && this.props.onClusterPress}
         >
           <View style={this.props.clusterStyle}>
-            <Text style={this.props.clusterTextStyle}>
-              {this.props.pointCount}
-            </Text>
+            {this.props.marker(this.props.pointCount)}
           </View>
         </Marker>
-      );
+      )
     }
-    return this.props.marker;
+    return this.props.marker
   }
 }
