@@ -54,6 +54,7 @@ export default class MapWithClustering extends Component {
         this.calculateClustersForMap(region);
       }
     }
+    this.props.onRegionChangeComplete(region)
   };
 
   createMarkersOnMap = () => {
