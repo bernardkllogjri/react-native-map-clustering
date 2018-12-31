@@ -20,9 +20,7 @@ export default class CustomMarker extends Component {
           }}
           onPress={this.props.pointCount > 0 && this.props.onClusterPress}
         >
-          <View style={this.props.clusterStyle}>
-            {this.props.marker(this.props.pointCount)}
-          </View>
+          <View>{this.props.marker(this.props.pointCount)}</View>
         </Marker>
       )
     }
